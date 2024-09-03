@@ -1,0 +1,7 @@
+{
+  "name": "ChordIT",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
