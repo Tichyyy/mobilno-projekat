@@ -1,2 +1,146 @@
-// For information on how to create your own theme, please see:
-// http://ionicframework.com/docs/theming/
+/* src/app/chords/chords.page.scss */
+
+/* Globalni stilovi */
+* {
+  font-family: cursive;
+  color: var(--ion-color-crna);
+}
+
+/* Definicije boja */
+:root {
+  --ion-color-crna: #000000;
+  --ion-color-crna-rgb: 0, 0, 0;
+  --ion-color-crna-contrast: #ffffff;
+  --ion-color-crna-contrast-rgb: 255, 255, 255;
+  --ion-color-crna-shade: #000000;
+  --ion-color-crna-tint: #1a1a1a;
+}
+
+/* Stil za ion-color-crna */
+.ion-color-crna {
+  --ion-color-base: var(--ion-color-crna);
+  --ion-color-base-rgb: var(--ion-color-crna-rgb);
+  --ion-color-contrast: var(--ion-color-crna-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-crna-contrast-rgb);
+  --ion-color-shade: var(--ion-color-crna-shade);
+  --ion-color-tint: var(--ion-color-crna-tint);
+}
+
+/* Stil za ion-footer */
+ion-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Stil za donja-dugmad-toolbar */
+.donja-dugmad-toolbar {
+  display: flex;
+  justify-content: center; /* Centriranje sadržaja horizontalno */
+}
+
+/* Stil za donja-dugmad */
+.donja-dugmad {
+  display: flex;
+  justify-content: center; /* Centriranje dugmadi */
+  width: 100%; /* Osigurava da dugmadi zauzimaju punu širinu toolbar-a */
+  padding: 0;
+}
+
+.donja-dugmad ion-button {
+  margin: 0 8px; /* Razmak između dugmadi */
+}
+
+/* Stil za guitar-background */
+.basketball-background {
+  --background: none;
+  background: linear-gradient(to bottom right, #e7af8c, #e0e0e0);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  min-height: 100vh; /* Obezbeđuje da zauzima celokupan ekran */
+}
+
+/* Stil za welcome-text h2 */
+.welcome-text h2 {
+  color: #000000;
+  font-size: 1.2em;
+  letter-spacing: 0.5px;
+  padding-top: 80px;
+  padding-bottom: 40px;
+  margin-top: 100px;
+  margin: 10px;
+}
+
+/* Stil za guitar-animation-container */
+.basketball-animation-container {
+  /* Manji razmak ispod slike */
+  margin: 20px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+}
+
+/* Stil za additional-text-container */
+.additional-text-container {
+  margin: 20px;
+  padding: 10px 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.additional-text-container p {
+  color: #000000;
+  font-size: 1.2em;
+  margin: 0;
+}
+
+/* Stil za news-item */
+.news-item {
+  position: relative;
+  display: block;
+  padding: 16px;
+  margin: 16px 0;
+}
+
+/* Stil za background-image */
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(px);
+  z-index: -1;
+  opacity: 0.5; /* Manja transparentnost za bolju vidljivost teksta */
+}
+
+/* Stil za text-overlay */
+.text-overlay {
+  position: relative;
+  z-index: 1;
+  color: #ffffff; /* Svetla boja za bolju čitljivost preko tamne slike */
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Poluprovidna pozadinska boja za bolju vidljivost teksta */
+  padding: 10px; /* Unutrašnji razmak za bolji izgled */
+  border-radius: 5px; /* Opcionalno: zaobljene ivice */
+}
+
+/* Stil za tekst unutar tekst-overlay */
+.tekst {
+  color: var(
+    --ion-color-crna
+  ); /* Koristi definisanu crnu boju, može se promeniti ako je potrebno */
+  font-size: 1em; /* Standardna veličina fonta */
+}

@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="welcome"></ion-back-button>
+    </ion-buttons>
+    <ion-title>NBA news</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar
+      (ionInput)="filterNews($event)"
+      placeholder="Search news"
+    ></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="filteredNews && filteredNews.length > 0">
+    <ion-item *ngFor="let article of filteredNews">
+      <div class="news-item">
+        <img
+          [src]="article.images[0].url"
+          [alt]="article.images[0].name"
+          class="background-image"
+        />
+        <ion-label class="text-overlay">
+          <h2>{{ article.headline }}</h2>
+          <p class="tekst">{{ article.description }}</p>
+          <p><strong>By:</strong> {{ article.byline }}</p>
+          <a [href]="article.links.web.href" target="_blank">Read More</a>
+        </ion-label>
+      </div>
+    </ion-item>
+  </ion-list>
+
+  <ion-spinner *ngIf="!filteredNews && !error"></ion-spinner>
+  <p *ngIf="error">{{ error }}</p>
+</ion-content>

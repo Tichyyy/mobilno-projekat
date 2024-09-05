@@ -1,3 +1,43 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu side="start" content-id="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>MENU</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item button>
+          <ion-icon name="person-circle" slot="start"></ion-icon>
+          <ion-label>My profile</ion-label>
+        </ion-item>
+        <ion-menu-toggle>
+          <ion-item button routerLink="/news">
+            <ion-icon name="musical-notes-outline" slot="start"></ion-icon>
+            <ion-label>News</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item button routerLink="/stats">
+            <ion-icon name="mic-outline" slot="start"></ion-icon>
+            <ion-label>Search stats</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle>
+          <ion-item button routerLink="/favorites">
+            <ion-icon name="heart" slot="start"></ion-icon>
+            <ion-label>Favorites</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-item button>
+          <ion-icon name="power-outline" slot="start"></ion-icon>
+          <ion-label>Log out</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet id="main-content"></ion-router-outlet>
 </ion-app>
