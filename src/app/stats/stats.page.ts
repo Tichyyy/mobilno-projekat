@@ -41,7 +41,7 @@ export class StatsPage implements OnInit {
         },
         (error: any) => {
           this.errorMessage =
-            'Došlo je do greške prilikom preuzimanja podataka.';
+            'Došlo je do greške prilikom preuzimanja podataka, igrač ne postoji u bazi';
         }
       );
     }
