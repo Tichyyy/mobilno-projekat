@@ -17,10 +17,27 @@ export class StatsPage implements OnInit {
 
   searchPlayer() {
     if (this.playerName.trim()) {
+      // Resetuj errorMessage i staru playerData pre nego što započneš novu pretragu
+      this.errorMessage = null;
+      this.playerData = [];
+
       this.playerService.getPlayerStats(this.playerName).subscribe(
         (data: any[]) => {
-          // Filtriraj podatke za sezonu 2023
-          this.playerData = data.filter((item: any) => item.season === 2023);
+          // Kreiraj mapu za praćenje igrača
+          const playerMap: { [key: string]: any } = {};
+
+          // Iteriraj kroz podatke i popuni mapu
+          data.forEach((item: any) => {
+            if (!playerMap[item.playerName]) {
+              playerMap[item.playerName] = item;
+            } else if (item.season === 2023) {
+              // Ako već postoji igrač i imamo podatke za sezonu 2023, ažuriraj podatke
+              playerMap[item.playerName] = item;
+            }
+          });
+
+          // Pretvori mapu u niz
+          this.playerData = Object.values(playerMap);
         },
         (error: any) => {
           this.errorMessage =
