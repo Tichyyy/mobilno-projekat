@@ -34,12 +34,18 @@
         />
         <p><strong>Pozicija:</strong> {{ player.position }}</p>
         <p><strong>Tim:</strong> {{ player.team }}</p>
-        <p><strong>Sezona:</strong> {{ player.season +1}}</p>
+        <p><strong>Sezona:</strong> {{ player.season + 1 }}</p>
         <p><strong>Broj poena po utakmici:</strong> {{ player.per }}</p>
         <p>
           <strong>Procenat šuta:</strong> {{ (player.tsPercent * 100) |
           number:'1.1-2' }}%
         </p>
+        <ion-button
+          (click)="toggleFavorite(player)"
+          [color]="isFavorite(player) ? 'primary' : 'medium'"
+        >
+          {{ isFavorite(player) ? 'Ukloni iz omiljenih' : 'Dodaj u omiljene' }}
+        </ion-button>
       </ion-card-content>
     </ion-card>
   </div>

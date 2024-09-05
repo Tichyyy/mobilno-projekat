@@ -2,6 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+export interface PlayerStats {
+  playerName: string;
+  position: string;
+  team: string;
+  season: number;
+  per: number;
+  tsPercent: number;
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -11,7 +20,7 @@ export class PlayerService {
 
   constructor(private http: HttpClient) {}
 
-  getPlayerStats(name: string): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}${name}`);
+  getPlayerStats(name: string): Observable<PlayerStats[]> {
+    return this.http.get<PlayerStats[]>(`${this.apiUrl}${name}`);
   }
 }

@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
+import { FavoritesPage } from './favorites/favorites.page';
+
 const routes: Routes = [
   {
     path: '',
@@ -12,6 +14,11 @@ const routes: Routes = [
     path: 'favorites',
     loadChildren: () =>
       import('./favorites/favorites.module').then((m) => m.FavoritesPageModule),
+  },
+
+  {
+    path: 'favorites',
+    component: FavoritesPage,
   },
   {
     path: 'welcome',

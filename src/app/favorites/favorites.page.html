@@ -1,16 +1,35 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="welcome"> </ion-back-button>
+      <ion-back-button defaultHref="stats"></ion-back-button>
     </ion-buttons>
-    <ion-title>favorites</ion-title>
+    <ion-title>Omiljeni Igrači</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-buttons class="ion-justify-content-center">
-    <ion-button routerLink="/chords" color="crna" fill="solid"
-      >Chords</ion-button
-    >
-  </ion-buttons>
+<ion-content padding class="page-content">
+  <div *ngIf="favoritePlayers.length === 0">
+    <p>Nema omiljenih igrača.</p>
+  </div>
+
+  <ion-card class="player-card" *ngFor="let player of favoritePlayers">
+    <ion-card-header>
+      <ion-card-title>{{ player.playerName }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <img
+        [src]="getImagePath(player.playerName)"
+        alt="{{ player.playerName }}"
+        class="player-image"
+      />
+      <p><strong>Pozicija:</strong> {{ player.position }}</p>
+      <p><strong>Tim:</strong> {{ player.team }}</p>
+      <p><strong>Sezona:</strong> {{ player.season + 1 }}</p>
+      <p><strong>Broj poena po utakmici:</strong> {{ player.per }}</p>
+      <p>
+        <strong>Procenat šuta:</strong> {{ (player.tsPercent * 100) |
+        number:'1.1-2' }}%
+      </p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
