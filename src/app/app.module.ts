@@ -11,12 +11,20 @@ import {
   HttpClientModule,
   provideHttpClient,
 } from '@angular/common/http';
+import { PlayerService } from './player.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    FormsModule,
+  ],
   providers: [
     provideHttpClient(),
+    PlayerService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
   ],
   bootstrap: [AppComponent],

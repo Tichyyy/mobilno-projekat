@@ -1,16 +1,43 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="welcome"> </ion-back-button>
-    </ion-buttons>
-    <ion-title>stats</ion-title>
+    <ion-title>Player Stats</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-buttons class="ion-justify-content-center">
-    <ion-button routerLink="/chords" color="crna" fill="solid"
-      >Chords</ion-button
-    >
-  </ion-buttons>
+<ion-content padding>
+  <ion-item>
+    <ion-label position="floating">Ime i prezime igrača</ion-label>
+    <ion-input
+      [(ngModel)]="playerName"
+      placeholder="Unesite ime i prezime"
+    ></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" (click)="searchPlayer()">Pretraži</ion-button>
+
+  <div *ngIf="errorMessage">
+    <p>{{ errorMessage }}</p>
+  </div>
+
+  <div *ngIf="playerData.length > 0">
+    <ion-card *ngFor="let player of playerData">
+      <ion-card-header>
+        <ion-card-title>{{ player.playerName }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <img
+          [src]="getImagePath(player.playerName)"
+          alt="{{ player.playerName }}"
+        />
+        <p><strong>Pozicija:</strong> {{ player.position }}</p>
+        <p><strong>Tim:</strong> {{ player.team }}</p>
+        <p><strong>Sezona:</strong> {{ player.season }}</p>
+        <p><strong>Broj poena po utakmici:</strong> {{ player.per }}</p>
+        <p>
+          <strong>Procenat šuta:</strong> {{ (player.tsPercent * 100) |
+          number:'1.1-2' }}%
+        </p>
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>
