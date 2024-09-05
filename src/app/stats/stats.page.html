@@ -1,11 +1,14 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="welcome"></ion-back-button>
+    </ion-buttons>
     <ion-title>Player Stats</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding class="page-content">
-  <ion-item>
+  <ion-item class="player-stats">
     <ion-input
       [(ngModel)]="playerName"
       placeholder="Ime i prezime igrača"
@@ -31,7 +34,7 @@
         />
         <p><strong>Pozicija:</strong> {{ player.position }}</p>
         <p><strong>Tim:</strong> {{ player.team }}</p>
-        <p><strong>Sezona:</strong> {{ player.season }}</p>
+        <p><strong>Sezona:</strong> {{ player.season +1}}</p>
         <p><strong>Broj poena po utakmici:</strong> {{ player.per }}</p>
         <p>
           <strong>Procenat šuta:</strong> {{ (player.tsPercent * 100) |

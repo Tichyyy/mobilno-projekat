@@ -2,9 +2,14 @@
 
 /* Stil za ion-header */
 ion-header {
-  --background: #0033a0; /* Tamno plava pozadina za header */
-  --color: #ffffff; /* Belo za tekst */
+  --background: transparent; /* Tamno plava pozadina za header */
+  /* Belo za tekst */
   padding: 10px 0; /* Razmak unutar header-a */
+}
+ion-toolbar {
+  --border-width: 0px; /* Uklanja bilo kakvu liniju ispod toolbar-a */
+  --box-shadow: none; /* Uklanja bilo kakvu senku */
+  --background: transparent; /* Ako želiš da toolbar bude potpuno providan */
 }
 
 /* Stil za ion-title */
@@ -18,6 +23,10 @@ ion-title {
 /* Stil za ion-item */
 ion-item {
   margin-bottom: 15px; /* Razmak između input polja */
+  --background: transparent;
+  --highlight-background: transparent; /* Uklanja highlight efekat */
+  --border-width: 0px; /* Uklanja border ispod */
+  --inner-border-width: 0px;
 }
 
 /* Stil za ion-input */
@@ -32,7 +41,7 @@ ion-input {
 
 /* Stil za ion-button */
 ion-button {
-  --background: #ad5135; /* Narandžasta boja za dugme */
+  --background: #dd8266; /* Narandžasta boja za dugme */
   --color: #fff; /* Belo za tekst */
   --border-radius: 12px; /* Zaobljeni uglovi */
   margin-top: 20px; /* Razmak iznad dugmeta */
@@ -49,6 +58,10 @@ ion-button {
   font-weight: 500;
 }
 
+ion-content {
+  --background: transparent; /* Postavlja pozadinu ion-content-a kao providnu */
+}
+
 /* Stil za centriranje sadržaja stranice */
 .page-content {
   display: flex;
@@ -56,18 +69,20 @@ ion-button {
   align-items: center; /* Centriranje sadržaja horizontalno */
   justify-content: center; /* Centriranje sadržaja vertikalno */
   padding: 20px;
+  background-image: url("https://wallpapers.com/images/high/nba-cartoon-ozmdq8uf9hrfcqgb.webp");
+  background-position: center;
 }
 
 /* Stil za kartice igrača */
 .player-card {
-  margin: 15px 0;
+  padding: 15px, 0;
   --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Blaga senka kartice */
   border-radius: 12px; /* Zaobljeni uglovi kartice */
   padding: 20px;
   background: #ffffff; /* Belo za pozadinu kartice */
   overflow: hidden; /* Sakrij sav sadržaj koji prelazi ivice kartice */
   max-width: 400px; /* Maksimalna širina kartice */
-  width: 100%; /* Širina kartice prilagodljiva */
+  width: 90%; /* Širina kartice prilagodljiva */
   text-align: center; /* Centriranje teksta unutar kartice */
 }
 
@@ -92,4 +107,10 @@ ion-card-content p {
 ion-card-content p strong {
   color: #000; /* Crna boja za naglašeni tekst */
   font-weight: 600; /* Podebljani tekst */
+}
+
+.player-stats {
+  padding-top: 20px;
+  margin: 20px;
+  overflow: hidden;
 }

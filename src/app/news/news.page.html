@@ -25,8 +25,10 @@
         <ion-label class="text-overlay">
           <h2>{{ article.headline }}</h2>
           <p class="tekst">{{ article.description }}</p>
-          <p><strong>By:</strong> {{ article.byline }}</p>
-          <a [href]="article.links.web.href" target="_blank">Read More</a>
+          <p class="tekst"><strong>By:</strong> {{ article.byline }}</p>
+          <a [href]="article.links.web.href" target="_blank"
+            ><strong>Read More</strong></a
+          >
         </ion-label>
       </div>
     </ion-item>
