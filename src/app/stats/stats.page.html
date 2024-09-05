@@ -4,23 +4,22 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class="page-content">
   <ion-item>
-    <ion-label position="floating">Ime i prezime igrača</ion-label>
     <ion-input
       [(ngModel)]="playerName"
-      placeholder="Unesite ime i prezime"
+      placeholder="Ime i prezime igrača"
     ></ion-input>
   </ion-item>
 
   <ion-button expand="full" (click)="searchPlayer()">Pretraži</ion-button>
 
-  <div *ngIf="errorMessage">
+  <div *ngIf="errorMessage" class="error-message">
     <p>{{ errorMessage }}</p>
   </div>
 
   <div *ngIf="playerData.length > 0">
-    <ion-card *ngFor="let player of playerData">
+    <ion-card class="player-card" *ngFor="let player of playerData">
       <ion-card-header>
         <ion-card-title>{{ player.playerName }}</ion-card-title>
       </ion-card-header>
@@ -28,6 +27,7 @@
         <img
           [src]="getImagePath(player.playerName)"
           alt="{{ player.playerName }}"
+          class="player-image"
         />
         <p><strong>Pozicija:</strong> {{ player.position }}</p>
         <p><strong>Tim:</strong> {{ player.team }}</p>

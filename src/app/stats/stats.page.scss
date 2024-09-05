@@ -1,0 +1,95 @@
+/* src/app/player-stats/player-stats.page.scss */
+
+/* Stil za ion-header */
+ion-header {
+  --background: #0033a0; /* Tamno plava pozadina za header */
+  --color: #ffffff; /* Belo za tekst */
+  padding: 10px 0; /* Razmak unutar header-a */
+}
+
+/* Stil za ion-title */
+ion-title {
+  font-size: 1.6em;
+  font-weight: 700;
+  text-align: center;
+  padding: 10px;
+}
+
+/* Stil za ion-item */
+ion-item {
+  margin-bottom: 15px; /* Razmak između input polja */
+}
+
+/* Stil za ion-input */
+ion-input {
+  --padding-start: 12px;
+  --padding-end: 12px;
+  --border-radius: 12px; /* Zaobljeni uglovi */
+  --background: #f5f5f5; /* Svetlo siva pozadina */
+  --color: #333; /* Tamno siva boja teksta */
+  font-size: 1em; /* Veličina fonta */
+}
+
+/* Stil za ion-button */
+ion-button {
+  --background: #ff5722; /* Narandžasta boja za dugme */
+  --color: #fff; /* Belo za tekst */
+  --border-radius: 12px; /* Zaobljeni uglovi */
+  margin-top: 20px; /* Razmak iznad dugmeta */
+  padding: 10px; /* Unutrašnji razmak */
+  font-size: 1.1em; /* Veći font za dugme */
+}
+
+/* Stil za poruke o grešci */
+.error-message {
+  color: #d32f2f; /* Crvena za error poruke */
+  text-align: center;
+  margin-top: 16px;
+  font-size: 1em;
+  font-weight: 500;
+}
+
+/* Stil za centriranje sadržaja stranice */
+.page-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centriranje sadržaja horizontalno */
+  justify-content: center; /* Centriranje sadržaja vertikalno */
+  padding: 20px;
+}
+
+/* Stil za kartice igrača */
+.player-card {
+  margin: 15px 0;
+  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Blaga senka kartice */
+  border-radius: 12px; /* Zaobljeni uglovi kartice */
+  padding: 20px;
+  background: #ffffff; /* Belo za pozadinu kartice */
+  overflow: hidden; /* Sakrij sav sadržaj koji prelazi ivice kartice */
+  max-width: 400px; /* Maksimalna širina kartice */
+  width: 100%; /* Širina kartice prilagodljiva */
+  text-align: center; /* Centriranje teksta unutar kartice */
+}
+
+/* Stil za slike igrača */
+.player-image {
+  width: 20%;
+  height: auto;
+  border-radius: 12px; /* Zaobljeni uglovi slike */
+  object-fit: cover; /* Pokriva celu sliku */
+  margin-bottom: 15px; /* Razmak ispod slike */
+}
+
+/* Stil za tekst unutar kartice */
+ion-card-content p {
+  font-size: 1em;
+  line-height: 1.6;
+  margin: 0;
+  color: #555; /* Svetlo siva boja teksta */
+}
+
+/* Različiti stilovi za tekst unutar kartice */
+ion-card-content p strong {
+  color: #000; /* Crna boja za naglašeni tekst */
+  font-weight: 600; /* Podebljani tekst */
+}
