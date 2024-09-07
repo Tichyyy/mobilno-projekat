@@ -1,5 +1,68 @@
+/* Pozadina sa NBA temom */
+.nba-login-content {
+  --background: transparent;
+  background-image: url("https://media.istockphoto.com/id/499753204/zh/%E5%90%91%E9%87%8F/realistic-vertical-basketball-court-illustration.jpg?s=612x612&w=0&k=20&c=kuzsyX6BMR2DjAUen2YnjckNTpqzwKQalYFrUBvgmxs=");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Visina content-a postavljena na celu visinu ekrana */
+  padding: 0;
+}
+
+/* Stil za formu unutar ion-content */
+.login-form {
+  background: rgba(0, 0, 0, 0.7); /* Poluprovidna crna pozadina */
+  align-items: center;
+
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%; /* Širina forme */
+  max-width: 400px; /* Maksimalna širina forme */
+  text-align: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* Dodaj senku za bolji izgled */
+}
+
+/* Stil za ion-item u slučaju greške */
 ion-item[color="danger"] {
   --background: #f8d7da;
   --color: #721c24;
   margin-bottom: 15px;
+  border-radius: 5px;
+}
+
+/* Stil za custom-item */
+.custom-item {
+  --background: transparent;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+/* Stil za ion-button */
+ion-button {
+  --background: #780000; /* Plava boja za login dugme */
+  --border-radius: 8px;
+  color: #fff;
+  width: 100%; /* Dugme pokriva celokupnu širinu forme */
+}
+
+ion-input::part(native) {
+  color: #fff !important; /* Postavlja belu boju za tekst */
+}
+
+/* Stil za ion-toolbar i ion-title */
+ion-toolbar {
+  --background: transparent;
+}
+
+ion-title {
+  font-size: 2em;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 268px;
 }

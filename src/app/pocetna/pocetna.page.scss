@@ -1,0 +1,89 @@
+/* Stil za ion-header */
+ion-header {
+  --background: transparent; /* Pozadina header-a kao providna */
+  padding: 0; /* Uklanja unutrašnji razmak */
+  z-index: 1; /* Osigurava da se header ne prikazuje iznad pozadine */
+}
+
+ion-toolbar {
+  --border-width: 0px; /* Uklanja bilo kakvu liniju ispod toolbar-a */
+  --box-shadow: none; /* Uklanja senku */
+  --background: transparent; /* Ako želiš da toolbar bude potpuno providan */
+}
+
+/* Stil za ion-title */
+ion-title {
+  font-size: 1.8em;
+  font-weight: 700;
+  color: #fff; /* Belo za tekst */
+  text-align: center;
+  padding: 10px;
+}
+
+/* Stil za ion-content */
+ion-content {
+  --background: transparent; /* Pozadina ion-content-a kao providna */
+  background-image: url("https://i.pinimg.com/originals/5e/11/99/5e11996f06ff229b9f082b44f2484fc7.gif");
+  background-size: cover; /* Podesi sliku da pokriva celu stranicu */
+  background-position: center; /* Pozicioniranje slike u centru */
+  background-attachment: fixed; /* Postavlja sliku tako da se ne pomera dok se stranica pomera */
+  color: #fff; /* Bela boja za tekst */
+  padding: 0; /* Uklanja unutrašnji razmak da bi pozadina bila potpuno vidljiva */
+  display: flex;
+  align-items: center; /* Vertikalno centriranje */
+  justify-content: center; /* Horizontalno centriranje */
+}
+
+/* Stil za tekst i dugmad u centru stranice */
+ion-content > div {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.6); /* Poluprovidna crna pozadina iza teksta */
+
+  margin: 30px;
+  border-radius: 10px;
+  max-width: 90%;
+
+  bottom: 20px; /* Razmak od dna */
+}
+
+/* Stil za h2 i p unutar div-a */
+ion-content > div h2,
+ion-content > div p {
+  color: #fff; /* Bele boje za tekst */
+}
+
+/* Stil za ion-button */
+ion-button {
+  margin-top: 10px; /* Razmak između dugmadi */
+  --border-radius: 12px; /* Zaobljeni uglovi dugmadi */
+  --color: #fff; /* Belo za tekst dugmadi */
+  --padding-start: 20px;
+  --padding-end: 20px;
+  font-size: 1.1em; /* Veći font za dugmadi */
+}
+
+.tekst {
+  padding-top: 25px;
+}
+/* Stil za primarni ion-button */
+ion-button {
+  --background: #f98500; /* Plava boja za login dugme */
+  --color: #fff; /* Belo za tekst */
+  margin: 10px;
+}
+
+/* Stil za secondary ion-button */
+ion-button[color="secondary"] {
+  --background: #ff5722; /* Narandžasta boja za registraciju */
+  --color: #fff; /* Belo za tekst */
+}
+
+ion-footer {
+  text-align: center;
+  color: white;
+  margin-bottom: 25px;
+}
+
+.register {
+  padding-bottom: 4px;
+}
