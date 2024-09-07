@@ -4,7 +4,17 @@
 
 export const environment = {
   production: false,
-  firebaseAPIkey: 'AIzaSyBovcNnamKeiWBnDlyG7PR6PC1NHWBQSmU',
+
+  firebase: {
+    apiKey: 'AIzaSyBovcNnamKeiWBnDlyG7PR6PC1NHWBQSmU',
+    authDomain: 'basketball-projekat.firebaseapp.com',
+    databaseURL:
+      'https://basketball-projekat-default-rtdb.europe-west1.firebasedatabase.app',
+    projectId: 'basketball-projekat',
+    storageBucket: 'basketball-projekat.appspot.com',
+    messagingSenderId: '236975429195',
+    appId: '1:236975429195:web:10d7bfd28673cf05369fce',
+  },
 };
 
 /*

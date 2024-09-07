@@ -6,7 +6,7 @@ import { FavoritesPage } from './favorites/favorites.page';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'welcome',
+    redirectTo: 'pocetna',
     pathMatch: 'full',
   },
 
@@ -34,6 +34,21 @@ const routes: Routes = [
     path: 'news',
     loadChildren: () =>
       import('./news/news.module').then((m) => m.NewsPageModule),
+  },
+  {
+    path: 'login',
+    loadChildren: () =>
+      import('./login/login.module').then((m) => m.LoginPageModule),
+  },
+  {
+    path: 'register',
+    loadChildren: () =>
+      import('./register/register.module').then((m) => m.RegisterPageModule),
+  },
+  {
+    path: 'pocetna',
+    loadChildren: () =>
+      import('./pocetna/pocetna.module').then((m) => m.PocetnaPageModule),
   },
 ];
 
