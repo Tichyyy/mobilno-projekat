@@ -1,6 +1,4 @@
-// src/app/auth.service.ts
 import { Injectable } from '@angular/core';
-import { updateProfile } from '@angular/fire/auth';
 import {
   Auth,
   signInWithEmailAndPassword,
@@ -8,6 +6,7 @@ import {
   signOut,
   onAuthStateChanged,
   User,
+  updateProfile as updateFirebaseProfile,
 } from '@angular/fire/auth';
 import { BehaviorSubject } from 'rxjs';
 
@@ -45,7 +44,7 @@ export class AuthService {
         email,
         password
       );
-      await updateProfile(userCredential.user, { displayName });
+      await updateFirebaseProfile(userCredential.user, { displayName });
       return userCredential.user;
     } catch (error) {
       console.error('Error registering:', error);
