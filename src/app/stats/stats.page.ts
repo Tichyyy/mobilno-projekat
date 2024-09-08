@@ -1,5 +1,6 @@
+// stats.page.ts
 import { Component, OnInit } from '@angular/core';
-import { PlayerService, PlayerStats } from '../player.service'; // Dodali smo PlayerStats interfejs
+import { PlayerService, PlayerStats } from '../player.service';
 
 @Component({
   selector: 'app-stats',
@@ -7,7 +8,7 @@ import { PlayerService, PlayerStats } from '../player.service'; // Dodali smo Pl
   styleUrls: ['./stats.page.scss'],
 })
 export class StatsPage implements OnInit {
-  playerName: string = ''; // Prazan unos
+  playerName: string = '';
   playerData: PlayerStats[] = [];
   errorMessage: string | null = null;
   favoritePlayers: Set<string> = new Set();
@@ -15,11 +16,21 @@ export class StatsPage implements OnInit {
   constructor(private playerService: PlayerService) {}
 
   ngOnInit() {
-    // Učitaj omiljene igrače iz localStorage
-    const favorites = localStorage.getItem('favoritePlayers');
-    if (favorites) {
-      this.favoritePlayers = new Set(JSON.parse(favorites));
-    }
+    this.loadFavoritePlayers();
+  }
+
+  loadFavoritePlayers() {
+    this.playerService.getFavoritePlayers().then(
+      (snapshot) => {
+        if (snapshot.exists()) {
+          const favoritePlayers = snapshot.val();
+          this.favoritePlayers = new Set(Object.keys(favoritePlayers));
+        }
+      },
+      (error) => {
+        console.error('Error loading favorite players:', error);
+      }
+    );
   }
 
   searchPlayer() {
@@ -31,9 +42,7 @@ export class StatsPage implements OnInit {
         (data: PlayerStats[]) => {
           const playerMap: { [key: string]: PlayerStats } = {};
 
-          // Proveri da li API vraća podatke za više sezona
           data.forEach((item: PlayerStats) => {
-            // Ako igrač već postoji u mapi, uzimamo sezonske podatke za 2023
             if (!playerMap[item.playerName]) {
               playerMap[item.playerName] = item;
             } else if (item.season === 2023) {
@@ -41,10 +50,9 @@ export class StatsPage implements OnInit {
             }
           });
 
-          // Sačuvamo podatke u playerData
           this.playerData = Object.values(playerMap);
         },
-        (error: any) => {
+        (error) => {
           this.errorMessage =
             'Došlo je do greške prilikom preuzimanja podataka, igrač ne postoji u bazi';
         }
@@ -55,15 +63,19 @@ export class StatsPage implements OnInit {
   toggleFavorite(player: PlayerStats) {
     if (this.favoritePlayers.has(player.playerName)) {
       this.favoritePlayers.delete(player.playerName);
+      // Remove from Firebase
+      this.playerService
+        .removeFavoritePlayer(player.playerName)
+        .catch((error) => {
+          console.error('Error removing favorite player:', error);
+        });
     } else {
       this.favoritePlayers.add(player.playerName);
+      // Add to Firebase
+      this.playerService.addFavoritePlayer(player).catch((error) => {
+        console.error('Error adding favorite player:', error);
+      });
     }
-
-    // Ažuriraj localStorage
-    localStorage.setItem(
-      'favoritePlayers',
-      JSON.stringify(Array.from(this.favoritePlayers))
-    );
   }
 
   isFavorite(player: PlayerStats): boolean {
