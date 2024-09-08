@@ -47,5 +47,16 @@
 }
 
 p {
-  font-family: "Roboto", sans-serif; // Promena fonta
+  font-family: "Roboto", sans-serif;
+}
+
+.prazno {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 20px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
