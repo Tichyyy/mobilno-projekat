@@ -28,6 +28,7 @@
     "@capacitor/ios": "^6.1.2",
     "@capacitor/keyboard": "6.0.2",
     "@capacitor/status-bar": "6.0.1",
+    "@firebase/database": "^1.0.7",
     "@ionic/angular": "^8.0.0",
     "firebase": "^10.13.1",
     "ionicons": "^7.0.0",
