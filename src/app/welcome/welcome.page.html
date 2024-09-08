@@ -7,17 +7,33 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="basketball-background">
+<ion-content class="welcome-page light-theme" [class.dark-theme]="isDarkMode">
+  <!-- Toggle switch for theme selection above "Hoops and Highlights" -->
+  <ion-buttons class="theme-toggle">
+    <ion-toggle
+      [(ngModel)]="isDarkMode"
+      (ionChange)="toggleTheme()"
+    ></ion-toggle>
+    <ion-label>{{ isDarkMode ? 'Dark Mode' : 'Light Mode' }}</ion-label>
+  </ion-buttons>
+
   <div class="welcome-text">
     <h2>
       Hoops and Highlights:<br />
       Where Every Stat and Story Matters!
     </h2>
   </div>
+
   <div class="basketball-animation-container">
     <img
       src="https://i.pinimg.com/originals/aa/d4/b4/aad4b4ff5ae0413ec69ebf6af0516e2e.gif"
-      alt="Guitar Animation"
+      alt="Basketball Animation"
+    />
+  </div>
+  <div class="pozadina2">
+    <img
+      src="https://mir-s3-cdn-cf.behance.net/project_modules/hd/63cf3f102599851.5f3a83a18d89b.gif"
+      alt="Pozadina"
     />
   </div>
   <div class="additional-text-container">

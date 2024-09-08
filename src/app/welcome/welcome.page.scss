@@ -1,0 +1,60 @@
+.theme-toggle {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0; /* Adjust as needed */
+}
+
+/* Light Theme (default) */
+.welcome-page.light-theme {
+  --background: linear-gradient(to bottom right, #e7af8c, #e0e0e0);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+/* Dark Theme */
+.welcome-page.dark-theme {
+  --ion-background-color: #000000; /* Black background */
+  --ion-text-color: #ffffff; /* White text */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.light-theme .pozadina2 img {
+  display: none;
+}
+
+.pozadina2 {
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+.dark-theme .additional-text-container {
+  background: none; /* Remove background */
+  border: none; /* Remove border */
+  box-shadow: none; /* Remove shadow if any */
+}
+
+.dark-theme .basketball-animation-container img {
+  display: none; /* Hide the image in dark mode */
+}
+
+.dark-theme h2,
+.dark-theme p {
+  color: #cebdbd; /* Ensure headers and paragraphs use white text in dark mode */
+}
+
+.dark-theme .theme-toggle ion-label {
+  color: #cebdbd; /* White text for dark mode */
+}
