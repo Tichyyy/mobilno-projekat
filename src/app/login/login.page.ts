@@ -16,7 +16,7 @@ export class LoginPage {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private toastController: ToastController // Dodaj toast controller
+    private toastController: ToastController
   ) {}
 
   async login() {

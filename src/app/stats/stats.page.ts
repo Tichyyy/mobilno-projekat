@@ -43,6 +43,7 @@ export class StatsPage implements OnInit {
           const playerMap: { [key: string]: PlayerStats } = {};
 
           data.forEach((item: PlayerStats) => {
+            //player map za sprecavanje duplikata
             if (!playerMap[item.playerName]) {
               playerMap[item.playerName] = item;
             } else if (item.season === 2023) {

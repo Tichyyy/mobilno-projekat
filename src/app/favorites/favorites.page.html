@@ -8,10 +8,12 @@
 </ion-header>
 
 <ion-content padding class="page-content">
+  <!--uslov-->
   <div *ngIf="favoritePlayers.length === 0">
     <p class="prazno">Nema omiljenih igrača.</p>
   </div>
 
+  <!--for petlja koja prolazi kroz svakog igraca iz favorites i pokazuje podatke-->
   <ion-card class="player-card" *ngFor="let player of favoritePlayers">
     <ion-card-header>
       <ion-card-title>{{ player.playerName }}</ion-card-title>
