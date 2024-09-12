@@ -1,24 +1,16 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
-import { FavoritesPage } from './favorites/favorites.page';
-
 const routes: Routes = [
   {
     path: '',
     redirectTo: 'pocetna',
     pathMatch: 'full',
   },
-
   {
     path: 'favorites',
     loadChildren: () =>
       import('./favorites/favorites.module').then((m) => m.FavoritesPageModule),
-  },
-
-  {
-    path: 'favorites',
-    component: FavoritesPage,
   },
   {
     path: 'welcome',
@@ -49,6 +41,16 @@ const routes: Routes = [
     path: 'pocetna',
     loadChildren: () =>
       import('./pocetna/pocetna.module').then((m) => m.PocetnaPageModule),
+  },
+
+  {
+    path: 'posts',
+    loadChildren: () =>
+      import('./posts/posts.module').then((m) => m.PostsPageModule),
+  },
+  {
+    path: 'other-posts',
+    loadChildren: () => import('./other-posts/other-posts.module').then( m => m.OtherPostsPageModule)
   },
 ];
 

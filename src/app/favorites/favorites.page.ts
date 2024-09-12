@@ -11,16 +11,20 @@ export class FavoritesPage implements OnInit {
 
   constructor(private playerService: PlayerService) {}
 
+  //lifecycle hook
   ngOnInit() {
     this.loadFavoritePlayers();
   }
 
+  //snapshot is current state
   loadFavoritePlayers() {
     this.playerService
       .getFavoritePlayers()
       .then((snapshot) => {
         if (snapshot.exists()) {
           const favoritePlayers = snapshot.val();
+
+          //pretvara JSON objekat u niz, kako bi mogao biti smesten u favoritePlayers
           this.favoritePlayers = Object.values(favoritePlayers);
         } else {
           console.log('No favorite players found.');

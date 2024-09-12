@@ -64,4 +64,22 @@ export class AuthService {
   getCurrentUser() {
     return this.auth.currentUser;
   }
+
+  getUserId(): string | null {
+    const user = this.getCurrentUser();
+    return user ? user.uid : null;
+  }
+
+  async getToken(): Promise<string | null> {
+    const user = this.getCurrentUser();
+    if (user) {
+      try {
+        return await user.getIdToken();
+      } catch (error) {
+        console.error('Error getting token:', error);
+        return null;
+      }
+    }
+    return null;
+  }
 }

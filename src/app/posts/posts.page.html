@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="welcome"></ion-back-button>
+    </ion-buttons>
+    <ion-title>My posts</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="input-group">
+    <ion-textarea #postInput placeholder="Enter post content"></ion-textarea>
+    <ion-input #userNameInput placeholder="Enter your name"></ion-input>
+    <ion-button
+      (click)="addPost(postInput.value ? postInput.value.toString() : '', userNameInput.value ? userNameInput.value.toString() : '')"
+      expand="full"
+    >
+      Add Post
+    </ion-button>
+  </div>
+
+  <ion-list>
+    <ion-item *ngFor="let post of posts">
+      <ion-label>
+        <div class="post-content">
+          <div *ngIf="post.isEditing">
+            <ion-textarea
+              [(ngModel)]="post.newContent"
+              placeholder="Edit content"
+            ></ion-textarea>
+          </div>
+          <div *ngIf="!post.isEditing">
+            <span>{{ post.content }}</span>
+            <span *ngIf="post.userId === (getCurrentUser()?.uid || '')">
+              (You)</span
+            >
+          </div>
+        </div>
+        <div class="post-actions">
+          <ion-button
+            *ngIf="post.userId === (getCurrentUser()?.uid || '')"
+            (click)="toggleEdit(post)"
+            color="primary"
+            expand="full"
+          >
+            {{ post.isEditing ? 'Save' : 'Edit' }}
+          </ion-button>
+          <ion-button
+            *ngIf="post.userId === (getCurrentUser()?.uid || '')"
+            (click)="deletePost(post.id)"
+            color="danger"
+            expand="full"
+          >
+            Delete
+          </ion-button>
+        </div>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

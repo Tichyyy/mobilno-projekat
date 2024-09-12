@@ -15,6 +15,8 @@ export const environment = {
     messagingSenderId: '236975429195',
     appId: '1:236975429195:web:10d7bfd28673cf05369fce',
   },
+  firebaseRDBUrl:
+    'https://console.firebase.google.com/u/0/project/basketball-projekat/database/basketball-projekat-default-rtdb/data/~2F',
 };
 
 /*
